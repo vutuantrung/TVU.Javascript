@@ -11,9 +11,28 @@ function increaseParam(param) {
     return param + 1;
 }
 
-describe('For loops normal test', function () {
+function endingCondition(param) {
+    if (param >= 10) return true;
+}
+
+describe('For loops test', function () {
     it('normal loops should return right value', function () {
-        var test = forLoopsModule.normalState(PARAM, 10, increaseParam);
-        assert.equal(test, 12);
+        var value = forLoopsModule.normalState(PARAM, 10, increaseParam);
+        assert.strictEqual(value, 12);
+    });
+
+    it('infinite loops should return right value and stop with ending condition', function () {
+        var value = forLoopsModule.loopInfinite(PARAM, endingCondition, increaseParam);
+        assert.strictEqual(value, 10);
+    });
+
+    it('base conter for loops should return right value', function () {
+        var value = forLoopsModule.baseCounter(PARAM, 100, increaseParam);
+        assert.strictEqual(value, 102);
+    });
+
+    it('new statement for loops should return right value', function () {
+        var value = forLoopsModule.multipleStatement(PARAM, 100, increaseParam);
+        assert.strictEqual(value, 101);
     });
 });

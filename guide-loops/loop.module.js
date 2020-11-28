@@ -1,4 +1,4 @@
-var forLoopsMethod_normalState = (param, endIndex, event) => {
+var normalState = (param, endIndex, event) => {
     for (let i = 0; i <= endIndex; i++) {
         param = event(param);
     }
@@ -6,23 +6,19 @@ var forLoopsMethod_normalState = (param, endIndex, event) => {
     return param;
 };
 
-var forLoopsMethod_loopInfinite = (param, endCondition, event) => {
+var loopInfinite = (param, endingCondition, event) => {
     for (;;) {
-        if (endCondition) {
-            event(param);
-            break;
-        }
+        if (endingCondition(param)) break;
+        param = event(param);
     }
 
     return param;
 };
 
-var forLoopsMethod_baseCounter = (param, endIndex, event) => {
+var baseCounter = (param, endIndex, event) => {
     for (let i = 0;; i++) {
-        event(param);
-        if (i > endIndex) {
-            break;
-        }
+        param = event(param);
+        if (i >= endIndex) break;
     }
 
     return param;
@@ -32,17 +28,17 @@ var newStatement = (param) => {
     return param + 1;
 };
 
-var forLoopsMethod_multipleStatement = (param, endIndex, event) => {
+var multipleStatement = (param, endIndex, event) => {
     for (let i = 0; i < endIndex; i++, newStatement(param)) {
-        event(param);
+        param = event(param);
     }
 
     return param;
 };
 
 module.exports = {
-    normalState: forLoopsMethod_normalState,
-    loopInfinite: forLoopsMethod_loopInfinite,
-    baseCounter: forLoopsMethod_baseCounter,
-    multipleStatement: forLoopsMethod_multipleStatement
+    normalState: normalState,
+    loopInfinite: loopInfinite,
+    baseCounter: baseCounter,
+    multipleStatement: multipleStatement
 };
