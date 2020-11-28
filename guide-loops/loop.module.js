@@ -36,9 +36,22 @@ var multipleStatement = (param, endIndex, event) => {
     return param;
 };
 
+// In JavaScript, a statement can be labeled when a label_name: is prepended to a statement.
+// Because a for loop is a statement you can label for loops.
+var labelLoops = (param, mainEnd, innerEnd, event) => {
+    main: for (let i = 0; i < mainEnd; i++)
+        inner: for (let j = 0; j < innerEnd; j++) {
+            param = event(param);
+            if (i === 2) break main;
+        }
+
+    return param;
+};
+
 module.exports = {
     normalState: normalState,
     loopInfinite: loopInfinite,
     baseCounter: baseCounter,
-    multipleStatement: multipleStatement
+    multipleStatement: multipleStatement,
+    labelLoops: labelLoops
 };
