@@ -1,0 +1,19 @@
+{
+  "name": "tvu.javascriptcours",
+  "version": "1.0.0",
+  "description": "Javascript cours",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vutuantrung/TVU.JavascriptCours.git"
+  },
+  "author": "VU TUAN TRUNG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vutuantrung/TVU.JavascriptCours/issues"
+  },
+  "homepage": "https://github.com/vutuantrung/TVU.JavascriptCours#readme"
+}
