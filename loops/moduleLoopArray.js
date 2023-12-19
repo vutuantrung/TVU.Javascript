@@ -8,7 +8,6 @@ exports.arrForEeach = (data, event) => {
       value: event(item),
     });
   });
-
   return arr;
 };
 
